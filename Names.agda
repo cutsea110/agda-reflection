@@ -26,3 +26,13 @@ isℕ _         = false
 isBool : Name → Bool
 isBool (quote Bool) = true
 isBool _            = false
+
+
+
+postulate Meta : Set
+{-# BUILTIN AGDAMETA Meta #-}
+
+primitive
+  primMetaEquality : Meta → Meta → Bool
+  primMetaLess     : Meta → Meta → Bool
+  primShowMeta     : Meta → String
