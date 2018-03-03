@@ -36,3 +36,22 @@ primitive
   primMetaEquality : Meta → Meta → Bool
   primMetaLess     : Meta → Meta → Bool
   primShowMeta     : Meta → String
+
+open import Data.Char
+open import Data.Float
+
+data Literal : Set where
+  nat    : (n : ℕ)    → Literal
+  float  : (x : Float)  → Literal
+  char   : (c : Char)   → Literal
+  string : (s : String) → Literal
+  name   : (x : Name)   → Literal
+  meta   : (x : Meta)   → Literal
+
+{-# BUILTIN AGDALITERAL   Literal #-}
+{-# BUILTIN AGDALITNAT    nat     #-}
+{-# BUILTIN AGDALITFLOAT  float   #-}
+{-# BUILTIN AGDALITCHAR   char    #-}
+{-# BUILTIN AGDALITSTRING string  #-}
+{-# BUILTIN AGDALITQNAME  name    #-}
+{-# BUILTIN AGDALITMETA   meta    #-}
