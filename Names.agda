@@ -37,11 +37,13 @@ primitive
   primMetaLess     : Meta → Meta → Bool
   primShowMeta     : Meta → String
 
+open import Data.Word
 open import Data.Char
 open import Data.Float
 
 data Literal : Set where
   nat    : (n : ℕ)    → Literal
+  word64 : (w : Word64) → Literal
   float  : (x : Float)  → Literal
   char   : (c : Char)   → Literal
   string : (s : String) → Literal
@@ -50,6 +52,7 @@ data Literal : Set where
 
 {-# BUILTIN AGDALITERAL   Literal #-}
 {-# BUILTIN AGDALITNAT    nat     #-}
+{-# BUILTIN AGDALITWORD64 word64  #-}
 {-# BUILTIN AGDALITFLOAT  float   #-}
 {-# BUILTIN AGDALITCHAR   char    #-}
 {-# BUILTIN AGDALITSTRING string  #-}
